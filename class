@@ -1,0 +1,806 @@
+import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
+public class RigoTechnology {
+    private JFrame f1;
+    ArrayList<Developer> alist = new ArrayList<Developer>(); //DECLARING ARRAYLIST OF DEVELOPER
+    private SeniorDeveloper obj1; //DECLARING OBJECT OF SENIOR DEVELOPER CLASS
+    private JuniorDeveloper obj2; //DECLARING OBJECT OF JUNIOR DEVELOPER CLASS
+    private Developer obj3; //DECLARING OBJECT OF DEVELOPER CLASS
+
+    //DECLARING AND INITIALIZING VARIABLES FOR SENIOR DEVELOPER
+    JTextField platformtf = new JTextField(30);
+    JLabel platforml = new JLabel("Platform");
+    JTextField interviewerNametf = new JTextField(30);
+    JLabel interviewerNamel = new JLabel("Interviewer Name");
+    JTextField workingHourstf = new JTextField(15);
+    JLabel workingHoursl = new JLabel("WorkingHours In A Day");
+    JTextField salaryTf = new JTextField(30);
+    JLabel salaryL = new JLabel("Salary: ");
+    JTextField developerNametf = new JTextField(30);
+    JLabel developerNamel= new JLabel("Developer Name: ");
+    JTextField joiningDatetf = new JTextField(30);
+    JLabel joiningDatel = new JLabel("Joining Date");
+    JTextField advanceSalarytf = new JTextField(30);
+    JLabel advanceSalaryl = new JLabel("Advance Salary");
+    JTextField staffRoomNumbertf = new JTextField(30);
+    JLabel staffRoomNumberl = new JLabel("Staff Room Number: ");
+    JTextField contractPeriodtf = new JTextField(30);
+    JLabel contractPeriodl = new JLabel("Contract Period: ");
+    JButton addPlatformForSeniorDeveloper = new JButton("Add platform");
+    JButton appointSeniorDeveloper = new JButton("Appoint");
+
+    //DECLARING AND INITIALIZING VARIABLES FOR JUNIOR DEVELOPER
+    JTextField platformtf1 = new JTextField(30);
+    JLabel platforml1 = new JLabel("Platform");
+    JTextField interviewerNametf2 = new JTextField(30);
+    JLabel interviewerNamel2 = new JLabel("Interviewer Name");
+    JTextField workingHourstf3 = new JTextField(15);
+    JLabel workingHoursl3 = new JLabel("WorkingHours In A Day");
+    JTextField salarytf4 = new JTextField(30);
+    JLabel salaryl4 = new JLabel("Salary: ");
+    JTextField developerNametf5 = new JTextField(30);
+    JLabel developerNamel5 = new JLabel("Developer Name: ");
+    JTextField evaluationPeriodtf6 = new JTextField(30);
+    JLabel evaluationPeriodl6 = new JLabel("Evaluation Period: ");
+    JTextField appointedBytf7 = new JTextField(30);
+    JLabel appointedByl7 = new JLabel("Appointed By :");
+    JTextField terminationDatetf8 = new JTextField(30);
+    JLabel terminationDatel8 = new JLabel("Termination Date");
+    JTextField specializationTf9 = new JTextField(30);
+    JLabel specializationl9 = new JLabel("Specialization");
+    JTextField appointedDatetf10 = new JTextField(20);
+    JLabel appointedDatel10= new JLabel("Appointed Date: ");
+    JButton Addplatform = new JButton("Add Platform");
+    JButton AppointJuniorDeveloper = new JButton("Appoint");
+
+    //  DECLARING AND INTIALIZING vARIABLES FOR DEVELOPER
+    JTextField DeveloperNumbertf = new JTextField(7);
+    JLabel developerNumberl = new JLabel("Developer Number: ");
+    JButton contractTermination = new JButton("CONTRACT TERMINATION");
+    JButton displayAll = new JButton("DISPLAY ALL STATUS");
+    JButton clear = new JButton("CLEAR");
+
+    public RigoTechnology() {
+        f1 = new JFrame("Rigo Technology");
+        f1.setVisible(true);
+        f1.pack();
+        f1.setSize(1000, 900);
+        f1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        JPanel seniorP1 = new JPanel(new GridBagLayout());
+        JPanel juniorP2 = new JPanel(new GridBagLayout());
+        JPanel developerp3 = new JPanel(new GridBagLayout());
+        f1.getContentPane().add(seniorP1, BorderLayout.CENTER);
+        f1.getContentPane().add(juniorP2, BorderLayout.NORTH);
+        f1.getContentPane().add(developerp3, BorderLayout.SOUTH);
+        GridBagConstraints g = new GridBagConstraints();
+
+        seniorP1.setPreferredSize(new Dimension(1000, 300));
+        seniorP1.setBorder(BorderFactory.createTitledBorder("Senior Developer"));
+        seniorP1.setBackground(Color.gray);
+
+        juniorP2.setBackground(Color.GRAY);
+        juniorP2.setBorder(BorderFactory.createTitledBorder("JUNIOR DEVELOPER")); //Sets border in the heading
+        juniorP2.setPreferredSize(new Dimension(1000, 250));
+
+        developerp3.setBackground(Color.GRAY);
+        developerp3.setBorder(BorderFactory.createTitledBorder("Developer"));
+        developerp3.setPreferredSize(new Dimension(1000, 150));
+
+        //g.anchor=GridBagConstraints.LINE_START;
+
+        //for senior developer
+        g.anchor = GridBagConstraints.LINE_START;
+        g.gridx = 0;
+        g.gridy = 0;
+        g.ipadx = 2;
+        g.ipady = 2;
+        g.insets = new Insets(5, 5, 5, 5);
+        seniorP1.add(developerNamel, g);
+
+        g.gridx = 1;
+        g.gridy = 0;
+        g.ipady = 2;
+        g.ipadx = 2;
+        seniorP1.add(developerNametf, g);
+
+        g.gridx = 0;
+        g.gridy = 1;
+        g.ipadx = 2;
+        g.ipady = 2;
+        seniorP1.add(platforml, g);
+
+        g.gridx = 1;
+        g.gridy = 1;
+        g.ipadx = 2;
+        g.ipady = 2;
+        seniorP1.add(platformtf, g);
+
+        g.gridx = 2;
+        g.gridy = 1;
+        g.ipadx = 2;
+        g.ipady = 2;
+        g.insets = new Insets(5, 5, 5, 5);
+        seniorP1.add(interviewerNamel, g);
+
+        g.gridx = 3;
+        g.gridy = 1;
+        g.ipadx = 2;
+        g.ipady = 2;
+        g.insets = new Insets(5, 5, 5, 5);
+        seniorP1.add(interviewerNametf, g);
+
+        g.gridx = 2;
+        g.gridy = 2;
+        g.ipadx = 2;
+        g.ipady = 2;
+        seniorP1.add(workingHoursl, g);
+
+        g.gridx = 3;
+        g.gridy = 0;
+        g.ipadx = 2;
+        g.ipady = 2;
+        seniorP1.add(workingHourstf, g);
+
+
+        g.gridx = 0;
+        g.gridy = 2;
+        g.ipadx = 2;
+        g.ipady = 2;
+        g.insets = new Insets(5, 5, 5, 5);
+        seniorP1.add(salaryL, g);
+
+        g.gridx =1;
+        g.gridy = 2;
+        g.ipadx = 2;
+        g.ipady = 2;
+        g.insets = new Insets(5, 5, 5, 5);
+        seniorP1.add(salaryTf, g);
+
+        g.gridx = 0;
+        g.gridy = 3;
+        g.ipadx = 2;
+        g.ipady = 2;
+        g.insets = new Insets(5, 5, 5, 5);
+        seniorP1.add(joiningDatel, g);
+
+        g.gridx = 1;
+        g.gridy = 3;
+        g.ipadx = 2;
+        g.ipady = 2;
+        g.insets = new Insets(5, 5, 5, 5);
+        seniorP1.add(joiningDatetf, g);
+
+        g.gridx = 2;
+        g.gridy = 3;
+        g.ipadx = 2;
+        g.ipady = 2;
+        g.insets = new Insets(5, 5, 5, 5);
+        seniorP1.add(advanceSalaryl, g);
+
+        g.gridx = 1;
+        g.gridy = 4;
+        g.ipadx = 2;
+        g.ipady = 2;
+        g.insets = new Insets(5, 5, 5, 5);
+        seniorP1.add(advanceSalarytf, g);
+
+        g.gridx = 0;
+        g.gridy = 4;
+        g.ipadx = 2;
+        g.ipady = 2;
+        g.insets = new Insets(5, 5, 5, 5);
+        seniorP1.add(staffRoomNumberl, g);
+
+        g.gridx = 3;
+        g.gridy = 3;
+        g.ipadx = 2;
+        g.ipady = 2;
+        g.insets = new Insets(5, 5, 5, 5);
+        seniorP1.add(staffRoomNumbertf, g);
+
+        g.gridx = 2;
+        g.gridy = 0;
+        g.ipadx = 2;
+        g.ipady = 2;
+        g.insets = new Insets(5, 5, 5, 5);
+        seniorP1.add(contractPeriodl, g);
+
+        g.gridx = 3;
+        g.gridy = 2;
+        g.ipadx = 2;
+        g.ipady = 2;
+        g.insets = new Insets(5, 5, 5, 5);
+        seniorP1.add(contractPeriodtf, g);
+
+        g.gridx = 3;
+        g.gridy = 5;
+        g.ipadx = 2;
+        g.ipady = 2;
+        g.insets = new Insets(5, 5, 5, 5);
+        seniorP1.add(addPlatformForSeniorDeveloper, g);
+
+        g.gridx = 2;
+        g.gridy = 5;
+        g.ipadx = 2;
+        g.ipady = 2;
+        g.insets = new Insets(5, 5, 5, 5);
+        seniorP1.add(appointSeniorDeveloper, g);
+
+
+
+        //for junior developer
+        g.gridx = 0;
+        g.gridy = 0;
+        g.ipady = 2;
+        g.ipadx = 2;
+        g.insets = new Insets(5, 5, 5, 5);
+        juniorP2.add(platforml1, g);
+
+        g.gridx = 1;
+        g.gridy = 0;
+        g.ipady = 2;
+        g.ipadx = 2;
+        g.insets = new Insets(5, 5, 5, 5);
+        juniorP2.add(platformtf1, g);
+
+        g.gridx = 0;
+        g.gridy = 1;
+        g.ipadx = 2;
+        g.ipady = 2;
+        g.insets = new Insets(5, 5, 5, 5);
+        juniorP2.add(interviewerNamel2, g);
+
+        g.gridx = 1;
+        g.gridy = 1;
+        g.ipadx = 2;
+        g.ipady = 2;
+        g.insets = new Insets(5, 5, 5, 5);
+        juniorP2.add(interviewerNametf2, g);
+
+        g.gridx = 2;
+        g.gridy = 0;
+        g.ipadx = 2;
+        g.ipady = 2;
+        g.insets = new Insets(5, 5, 5, 5);
+        juniorP2.add(workingHoursl3, g);
+
+        g.gridx = 3;
+        g.gridy = 0;
+        g.ipadx = 2;
+        g.ipady = 2;
+        g.insets = new Insets(5, 5, 5, 5);
+        juniorP2.add(workingHourstf3, g);
+
+        g.gridx = 2;
+        g.gridy = 1;
+        g.ipadx = 2;
+        g.ipady = 2;
+        g.insets = new Insets(5, 5, 5, 5);
+        juniorP2.add(salaryl4, g);
+
+        g.gridx = 3;
+        g.gridy = 1;
+        g.ipadx = 2;
+        g.ipady = 2;
+        g.insets = new Insets(5, 5, 5, 5);
+        juniorP2.add(salarytf4, g);
+
+        g.gridx = 3;
+        g.gridy = 5;
+        g.ipadx = 2;
+        g.ipady = 2;
+        g.insets = new Insets(5, 5, 5, 5);
+        juniorP2.add(Addplatform, g);
+
+        g.gridx = 2;
+        g.gridy = 2;
+        g.ipadx = 2;
+        g.ipady = 2;
+        g.insets = new Insets(5, 5, 5, 5);
+        juniorP2.add(developerNamel5, g);
+
+        g.gridx = 1;
+        g.gridy = 3;
+        g.ipadx = 2;
+        g.ipady = 2;
+        g.insets = new Insets(5, 5, 5, 5);
+        juniorP2.add(developerNametf5, g);
+
+        g.gridx = 0;
+        g.gridy = 5;
+        g.ipadx = 2;
+        g.ipady = 2;
+        g.insets = new Insets(5, 5, 5, 5);
+        juniorP2.add(evaluationPeriodl6, g);
+
+        g.gridx = 1;
+        g.gridy = 5;
+        g.ipadx = 2;
+        g.ipady = 2;
+        g.insets = new Insets(5, 5, 5, 5);
+        juniorP2.add(evaluationPeriodtf6, g);
+
+        g.gridx = 0;
+        g.gridy = 4;
+        g.ipadx = 2;
+        g.ipady = 2;
+        g.insets = new Insets(5, 5, 5, 5);
+        juniorP2.add(appointedByl7, g);
+
+        g.gridx = 1;
+        g.gridy = 4;
+        g.ipadx = 2;
+        g.ipady = 2;
+        g.insets = new Insets(5, 5, 5, 5);
+        juniorP2.add(appointedBytf7, g);
+
+        g.gridx = 0;
+        g.gridy = 2;
+        g.ipadx = 2;
+        g.ipady = 2;
+        g.insets = new Insets(5, 5, 5, 5);
+        juniorP2.add(terminationDatel8, g);
+
+        g.gridx = 3;
+        g.gridy = 3;
+        g.ipadx = 2;
+        g.ipady = 2;
+        g.insets = new Insets(5, 5, 5, 5);
+        juniorP2.add(terminationDatetf8, g);
+
+        g.gridx = 0;
+        g.gridy = 3;
+        g.ipadx = 2;
+        g.ipady = 2;
+        g.insets = new Insets(5, 5, 5, 5);
+        juniorP2.add(specializationl9, g);
+
+        g.gridx = 3;
+        g.gridy = 2;
+        g.ipadx = 2;
+        g.ipady = 2;
+        g.insets = new Insets(5, 5, 5, 5);
+        juniorP2.add(specializationTf9, g);
+
+        g.gridx = 2;
+        g.gridy = 5;
+        g.ipadx = 2;
+        g.ipady = 2;
+        g.insets = new Insets(5, 5, 5, 5);
+        juniorP2.add(AppointJuniorDeveloper, g);
+
+        g.gridx = 2;
+        g.gridy = 3;
+        g.ipadx = 2;
+        g.ipady = 2;
+        g.insets = new Insets(5, 5, 5, 5);
+        juniorP2.add(appointedDatel10, g);
+
+        g.gridx = 1;
+        g.gridy = 2;
+        g.ipadx = 2;
+        g.ipady = 2;
+        g.insets = new Insets(5, 5, 5, 5);
+        juniorP2.add(appointedDatetf10, g);
+
+
+        //for developer
+        g.gridx = 0;
+        g.gridy = 1;
+        g.ipadx = 2;
+        g.ipady = 2;
+        g.insets = new Insets(5, 5, 5, 5);
+        developerp3.add(displayAll, g);
+
+        g.gridx = 2;
+        g.gridy = 1;
+        g.ipadx = 2;
+        g.ipady = 2;
+        g.insets = new Insets(5, 5, 5, 5);
+        developerp3.add(clear, g);
+
+        g.gridx = 1;
+        g.gridy = 1;
+        g.ipadx = 2;
+        g.ipady = 2;
+        g.insets = new Insets(5, 5, 5, 5);
+        developerp3.add(contractTermination, g);
+
+        g.gridx = 0;
+        g.gridy = 0;
+        g.ipadx = 2;
+        g.ipady = 2;
+        developerp3.add(developerNumberl,g);
+
+        g.gridx = 1;
+        g.gridy = 0;
+        g.ipadx = 2;
+        g.ipady = 2;
+        developerp3.add(DeveloperNumbertf,g);
+
+        buttons();
+
+
+    }
+
+
+
+    //Getter methods for textfield included in junior Developer
+
+    public String getPlatformnameJD() {
+        String platformJD = platformtf1.getText();
+        return platformJD;
+    }
+
+    public String getInterviewernameJD() {
+        String interviewernameJD = interviewerNametf2.getText();
+        return interviewernameJD;
+    }
+
+    public int getWorkingHourJD(){
+        int workinghourJD = Integer.parseInt(workingHourstf3.getText());
+        return workinghourJD;
+    }
+
+    public String getDevelopernameJD(){
+        String developernameJD = developerNametf5.getText();
+        return developernameJD;
+    }
+
+    public String getTerminationdateJD(){
+        String terminationdateJD = terminationDatetf8.getText();
+        return terminationdateJD;
+    }
+
+    public int getDevelopernumberJD(){
+        int developernumberJD = Integer.parseInt(DeveloperNumbertf.getText());
+        return developernumberJD;
+    }
+
+    public String getAppointeddateJD(){
+        String appointeddateJD= appointedDatetf10.getText();
+        return appointeddateJD;
+    }
+
+    public String getSpecializationJD(){
+        String specializationJD = specializationTf9.getText();
+        return specializationJD;
+    }
+
+    public String getAppointedByJD(){
+        String appointeddbyJD= appointedBytf7.getText();
+        return appointeddbyJD;
+    }
+
+    public int getSalaryJD(){
+        int salaryJD = Integer.parseInt(salarytf4.getText());
+        return salaryJD;
+    }
+
+    public String getEvaluationPeriodJD(){
+        String evaluationPeriodJD= evaluationPeriodtf6.getText();
+        return evaluationPeriodJD;
+    }
+
+    //Getter methods for textfield included in Senior Developer
+
+    public String getPlatformnameSD() {
+        String platformSD= platformtf.getText();
+        return platformSD;
+    }
+
+    public String getInterviewernameSD() {
+        String interviewernameSD= interviewerNametf.getText();
+        return interviewernameSD;
+    }
+
+    public int getWorkingHourSD(){
+        int workinghourSD= Integer.parseInt(workingHourstf.getText());
+        return workinghourSD;
+    }
+
+    public String getDevelopernameSD(){
+        String developernameSD = developerNametf.getText();
+        return developernameSD;
+    }
+
+
+    public String getStaffroomNumberSD(){
+        String staffroomNoSD= staffRoomNumbertf.getText();
+        return staffroomNoSD;
+    }
+
+    public String getJoiningdateSD(){
+        String joiningdateSD= joiningDatetf.getText();
+        return joiningdateSD;
+    }
+
+    public int getSalarySD(){
+        int salarySD= Integer.parseInt(salaryTf.getText());
+        return salarySD;
+    }
+
+    public double getAdvancesalarySD() {
+        double advancesalarySD = Double.parseDouble(advanceSalarytf.getText());
+        return advancesalarySD;
+    }
+    public int getContractperiodSD() {
+        int contractperiodSD = Integer.parseInt(contractPeriodtf.getText());
+        return contractperiodSD;
+    }
+
+    public  void buttons(){
+
+        //adding platform junior developer
+        Addplatform.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (getPlatformnameJD().isEmpty() || getInterviewernameJD().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Please fill the empty textfield to add !!");
+                    DeveloperNumbertf.setText("-1");
+                }
+                else {
+                    try {
+                        //creating object of type Junior developer and passing parameters into it
+                        obj2 = new JuniorDeveloper(getPlatformnameJD(),getInterviewernameJD(),getWorkingHourJD(),getSalaryJD(),getAppointedByJD(),getTerminationdateJD());
+                        alist.add(obj2);
+                        System.out.println("Array List = "+alist); //printing array list
+                        JOptionPane.showMessageDialog(null, "Successfully added !!");
+                    }
+                    catch (NumberFormatException e1){
+                        //JOptionPane.showMessageDialog(null, "Please enter Integer value !!!");
+                        //DeveloperNumbertf.setText("-1");
+                        e1.printStackTrace();
+                    }
+                    catch (Exception e2){
+                        JOptionPane.showMessageDialog(null, "ERROR!!");
+                        DeveloperNumbertf.setText("-1");
+                    }
+                }
+            }
+
+        });
+            //apointing Junior developer
+            AppointJuniorDeveloper.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    //checking if the textfield is empty or not.
+                    if (getDevelopernameJD().isEmpty() || getSpecializationJD().isEmpty()){
+                        JOptionPane.showMessageDialog(null, "Please fill the empty textfield !!!");
+                        DeveloperNumbertf.setText("-1");
+                    }
+                    else{
+                        try {
+                            //checking if the developer number is in range or not
+                            if (alist.indexOf(obj2) == getDevelopernumberJD() && getDevelopernumberJD() > -1 ) {
+                                //typecasting obj2 into junior developer object type
+                                obj2 = (JuniorDeveloper)alist.get(getDevelopernumberJD());
+                                //calling method of Junior developer class to appoint developer and passing parameters.
+                                obj2.appointDeveloper(getDevelopernameJD(),getAppointeddateJD(),getTerminationdateJD(),getSpecializationJD());
+                                JOptionPane.showMessageDialog(null, "Successfully Appointed !!!");
+                                DeveloperNumbertf.setText("");
+                            }
+                            else {
+
+                                JOptionPane.showMessageDialog(null, "Please enter the correct developer number !!!");
+                                DeveloperNumbertf.setText("-1");
+                            }
+
+                        }
+                        catch (NumberFormatException e1){
+                            JOptionPane.showMessageDialog(null,"Please enter Integer value !!!");
+                            DeveloperNumbertf.setText("-1");
+
+
+                        }
+                        catch (Exception e2){
+                            JOptionPane.showMessageDialog(null, "Error found!!!");
+                            DeveloperNumbertf.setText("-1");
+                        }
+                    }
+                }
+
+            });
+
+        //Add for senior developer!!
+
+        addPlatformForSeniorDeveloper.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (getPlatformnameSD().isEmpty() || getInterviewernameSD().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Please fill the empty textfield to add !!");
+                    DeveloperNumbertf.setText("-1");
+                }
+                else {
+                    try {
+                        //creating object of type Senior developer and passing parameters into it
+                        obj1 = new SeniorDeveloper(getPlatformnameSD(),getInterviewernameSD(),getWorkingHourSD(),getSalarySD(),getContractperiodSD());
+                        alist.add(obj1);
+                        System.out.println("Array List = "+alist); //printing array list
+                        JOptionPane.showMessageDialog(null, "Successfully added !!");
+                    }
+                    catch (NumberFormatException e1){
+                        JOptionPane.showMessageDialog(null, "Please enter Integer value !!!");
+                        DeveloperNumbertf.setText("-1");
+                    }
+                    catch (Exception e2){
+                        JOptionPane.showMessageDialog(null, "ERROR!!");
+                        DeveloperNumbertf.setText("-1");
+                    }
+                }
+            }
+        });
+
+            appointSeniorDeveloper.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if (getDevelopernameSD().isEmpty() || getStaffroomNumberSD().isEmpty() || getJoiningdateSD().isEmpty()){
+                        JOptionPane.showMessageDialog(null,"Please fill the empty textfields !!!");
+                        DeveloperNumbertf.setText("-1");
+                    }
+                    else {
+                        try {
+                            //checking if the developer number is in range or not.
+                            if (alist.indexOf(obj1) == getDevelopernumberJD() && getDevelopernumberJD() > -1){
+                                //typecasting obj1 into senior developer object type and getting appropriate developer number
+                                obj1= (SeniorDeveloper) alist.get(getDevelopernumberJD());
+                                //calling method of Senior developer class to appoint developer and passing parameters.
+                                obj1.hireDeveloper(getDevelopernameSD(),getJoiningdateSD(),getAdvancesalarySD(),getStaffroomNumberSD());
+                                JOptionPane.showMessageDialog(null, "Successfully Appointed !!!");
+                                DeveloperNumbertf.setText("");
+
+                            }
+                            else {
+                                JOptionPane.showMessageDialog(null, "Please enter the correct  number !!!");
+                                DeveloperNumbertf.setText("-1");
+
+                            }
+                        }
+                        catch (NumberFormatException e1){
+                            JOptionPane.showMessageDialog(null,"Please enter Integer value !!!");
+                            DeveloperNumbertf.setText("-1");
+
+                        }
+                        catch (Exception e2){
+                            JOptionPane.showMessageDialog(null, "Error !!!");
+                            DeveloperNumbertf.setText("-1");
+                        }
+                    }
+                }
+            });
+
+            contractTermination.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    try {
+
+                        if (alist.indexOf(obj1) == getDevelopernumberJD() && getDevelopernumberJD() > -1) {//checking developer number
+                            //typecasting objSenior into senior developer object type and getting appropriate developer number
+                            obj1 = (SeniorDeveloper) alist.get(getDevelopernumberJD());
+                            //calling method to terminate contract of the developer
+                            obj1.developerContractTermination();
+                            JOptionPane.showMessageDialog(null, "Contract Terminated !!!");
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Contract NOT Terminated !!!");
+                        }
+                    }
+                    catch (NumberFormatException e1){
+                        JOptionPane.showMessageDialog(null, "Please enter Integer value !!!");
+                        DeveloperNumbertf.setText("-1");
+                    }
+                    catch (Exception e2){
+                        JOptionPane.showMessageDialog(null, "Error !!!");
+                        DeveloperNumbertf.setText("-1");
+                    }
+
+                }
+            });
+            displayAll.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    display();
+                }
+            });
+
+            clear.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    platformtf.setText(null);
+                    platformtf1.setText(null);
+                    interviewerNametf.setText(null);
+                    interviewerNametf2.setText(null);
+                    developerNametf.setText(null);
+                    developerNametf5.setText(null);
+                    workingHourstf.setText(null);
+                    workingHourstf3.setText(null);
+                    salaryTf.setText(null);
+                    salarytf4.setText(null);
+                    staffRoomNumbertf.setText(null);
+                    evaluationPeriodtf6.setText(null);
+                    DeveloperNumbertf.setText(null);
+                    contractPeriodtf.setText(null);
+                    specializationTf9.setText(null);
+                    appointedBytf7.setText(null);
+                    terminationDatetf8.setText(null);
+                    joiningDatetf.setText(null);
+                    advanceSalarytf.setText(null);
+                    appointedDatetf10.setText(null);
+
+                }
+            });
+    }
+
+
+    public void display(){
+        //declaring and initializing area to display
+        JTextArea textArea = new JTextArea();
+        textArea.setEditable(false);
+        JScrollPane scrollPane = new JScrollPane(textArea);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+
+        try{
+            //using for loop to get all the elements from the arrayList
+            for (int i = 0; i < alist.size() ; i++) {
+                if (alist.get(i) instanceof SeniorDeveloper){
+                    SeniorDeveloper obj1 =(SeniorDeveloper) alist.get(i);
+                    textArea.append("\n"+"--------------------------------------Details Of Senior Developer---------------------------------------" + "\n" + "\n");
+                    textArea.append( "Developer Number: "+i+"\n");
+                    textArea.append("----------------------------------------------------------------------------------------------------------------\n");
+                    textArea.append("Platform: "+obj1.getPlatform()+"\n");
+                    textArea.append("Interviewer Name: "+obj1.getInterviewerName()+"\n");
+                    textArea.append("Working Hours: "+obj1.getWorkingHours()+"\n");
+                    textArea.append("Salary: "+obj1.getSalary()+"\n");
+                    textArea.append("Contract Period: "+obj1.getContractPeriod()+"\n");
+                    textArea.append("Joining Date: "+obj1.getJoiningDate()+"\n");
+                    textArea.append("Staff Room Number: "+obj1.getStaffRoomNumber()+"\n");
+                    textArea.append("Advance Salary: "+obj1.getAdvanceSalary()+"\n");
+                    textArea.append("Apppointed Status: "+obj1.getAppointed()+"\n");
+                    textArea.append("Contract Termination Status: "+obj1.getTerminated()+"\n");
+                    textArea.append("----------------------------------------------------------------------------------------------------------------\n");
+                }
+                else if (alist.get(i) instanceof JuniorDeveloper){
+                    JuniorDeveloper obj2 = (JuniorDeveloper)alist.get(i);
+                    textArea.append("\n"+"-------------------------------------- Details of Junior Developer---------------------------------------" + "\n" + "\n");
+                    textArea.append( "Developer Number: "+i+"\n");
+                    textArea.append("----------------------------------------------------------------------------------------------------------------\n");
+                    textArea.append("Platform: "+obj2.getPlatform()+"\n");
+                    textArea.append("Interviewer Name: "+obj2.getInterviewerName()+"\n");
+                    textArea.append("Working Hours: "+obj2.getWorkingHours()+"\n");
+                    textArea.append("Salary: "+obj2.getSalary()+"\n");
+                    textArea.append("Apppointed By: "+obj2.getAppointedBy()+"\n");
+                    textArea.append("Termination Date: "+obj2.getTerminationDate()+"\n");
+                    textArea.append("Appointed Date: "+obj2.getAppointedDate()+"\n");
+                    textArea.append("Evaluation Period: "+obj2.getEvaluationDate()+"\n");
+                    textArea.append("Specialization: "+obj2.getSpecialization()+"\n");
+                    textArea.append("Joined Status: "+obj2.getJoined()+"\n");
+                    textArea.append("----------------------------------------------------------------------------------------------------------------\n");
+
+                }
+                else {
+                    JOptionPane.showMessageDialog(null,"Nothing!!!");
+                }
+            }
+        }
+        catch (Exception e){
+            JOptionPane.showMessageDialog(null,"Error!!!");
+        }
+        //declaring and initializing frame to display information
+        JFrame displayF = new JFrame("Display All");
+        displayF.setVisible(true);
+        displayF.add(scrollPane);
+        displayF.setSize(2000,2000);
+
+    }
+
+    public static void main(String[] args) {
+        RigoTechnology objRigoTechnology = new RigoTechnology();
+
+    }
+}
+
